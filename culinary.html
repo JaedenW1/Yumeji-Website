@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yumeji - Culinary</title>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon.svg">
+    <link rel="stylesheet" href="Assets/stylesheet.css">
+    <style>
+        .content {
+            height: calc(100dvh - 91px);
+
+            display: block !important;
+
+            padding: 0px;
+
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        .section {
+            width: 100dvw;
+            height: calc(100dvh - 91px);
+
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+            border-bottom: 5px solid #EEE;
+
+            scroll-snap-align: start;
+        }
+        .firstArea, .secondArea {
+            display: flex;
+            justify-content: center;
+        }
+        .imageArea {
+            flex-direction: row;
+            align-items: center;
+
+            gap: 20px;
+        }
+        .imageArea button {
+            height: 50px;
+            width: 50px;
+
+            background-color: #BC002D;
+            color: white;
+
+            font-family: "Noto Serif JP", sans-serif;
+            font-size: 23px;
+
+            border: none;
+            border-radius: 10px;
+        }
+        .imageArea button:hover {
+            background-color: #9e0025;
+        }
+        .imageArea button:active {
+            background-color: #8b0121;
+        }
+        .textArea {
+            flex-direction: column;
+
+            padding: 70px;
+
+            font-family: "Noto Serif JP", sans-serif;
+        }
+        .textArea h2 {
+            margin: 0;
+        }
+        .textArea p {
+            text-indent: 30px;
+            text-align: justify;
+
+            line-height: 2;
+        }
+
+        .carousel {
+            border-radius: 5px;
+            border: 5px solid #BC002D;
+
+            height: 45dvh;
+            width: 35dvw;
+
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            height: 100%;
+            transition: transform 0.4s ease;
+        }
+        .slides img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1 class="title">夢路 Yumeji</h1>
+
+        <div class="navigation">
+            <a href="index.html">Home</a>
+            <a href="activity.html"">Activity</a>
+            <a href="destinations.html" >Destinations</a>
+            <a href="culinary.html" class="active">Culinary</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="section">
+            <div class="firstArea imageArea">
+                <button onclick="lastSlide(0)">&lt;</button>
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="Assets/Images/Culinary/wagyu1.png" alt="">
+                        <img src="Assets/Images/Culinary/wagyu2.png" alt="">
+                    </div>
+                </div>
+                <button onclick="nextSlide(0)">&gt;</button>
+            </div>
+            <div class="secondArea textArea">
+                <h2>Wagyu Ricebox</h2>
+                <p>The wagyu rice box stands out as a premium expression of Japanese cuisine, combining simplicity with indulgence. Thinly sliced wagyu beef is typically grilled or seared just enough to render its rich marbling, creating a buttery texture that almost melts upon contact. The flavor profile is deeply umami, slightly sweet from the marinade or tare sauce, and balanced by the neutral warmth of steamed rice beneath it. Texturally, the contrast between the tender beef and the soft, slightly sticky rice enhances the overall experience. Its appeal lies in how it elevates a basic rice dish into something luxurious while still maintaining the clean, minimalistic philosophy characteristic of Japanese cooking.</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="firstArea textArea">
+                <h2>Tonkatsu</h2>
+                <p>Tonkatsu delivers a satisfying combination of crunch and juiciness, making it a staple comfort food in Japan. It consists of a thick cut of pork, breaded with panko crumbs and deep-fried until golden brown. The outer layer provides a crisp, airy crunch, while the interior remains tender and moist. The flavor is relatively mild on its own but becomes more complex when paired with tonkatsu sauce, which adds a tangy, slightly sweet depth. Often served with shredded cabbage and rice, the dish balances heaviness with freshness. Its strength lies in its straightforward preparation and reliable texture contrast, which consistently appeals to a wide range of preferences.</p>
+            </div>
+            <div class="secondArea imageArea">
+                <button onclick="lastSlide(1)">&lt;</button>
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="Assets/Images/Culinary/tonkatsu1.jpg" alt="">
+                        <img src="Assets/Images/Culinary/tonkatsu2.jpg" alt="">
+                    </div>
+                </div>
+                <button onclick="nextSlide(1)">&gt;</button>
+            </div>
+        </div>
+        <div class="section">
+            <div class="firstArea imageArea">
+                <button onclick="lastSlide(2)">&lt;</button>
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="Assets/Images/Culinary/ramen1.jpg" alt="">
+                        <img src="Assets/Images/Culinary/ramen2.jpg" alt="">
+                    </div>
+                </div>
+                <button onclick="nextSlide(2)">&gt;</button>
+            </div>
+            <div class="secondArea textArea">
+                <h2>Ramen</h2>
+                <p>Ramen is a highly versatile dish that showcases depth and variety within Japanese cuisine. It features wheat noodles served in a flavorful broth that can range from light and clear to rich and creamy, depending on the base such as shoyu, miso, or tonkotsu. The taste experience is layered, combining savory broth, springy noodles, and toppings like sliced pork, soft-boiled eggs, and green onions. Texturally, ramen offers a dynamic mix between the chewiness of the noodles and the softness or richness of the toppings. Its popularity stems from its adaptability and the way each component contributes to a balanced yet complex bowl, making it both comforting and customizable.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const carousels = document.querySelectorAll(".slides");
+    const index = Array(carousels.length).fill(0);
+
+    function updateSlide(i) {
+        carousels[i].style.transform = `translateX(-${index[i] * 100}%)`;
+    }
+
+    function nextSlide(i) {
+        const total = carousels[i].children.length;
+        index[i] = (index[i] + 1) % total;
+        updateSlide(i);
+    }
+
+    function lastSlide(i) {
+        const total = carousels[i].children.length;
+        index[i] = (index[i] - 1 + total) % total;
+        updateSlide(i);
+    }
+</script>
+</html>
