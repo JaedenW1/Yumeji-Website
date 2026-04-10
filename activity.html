@@ -7,6 +7,55 @@
     <title>Yumeji - Activity</title>
     <link rel="icon" type="image/x-icon" href="../Assets/favicon.svg">
     <link rel="stylesheet" href="Assets/stylesheet.css">
+    <style>
+        .content {
+            height: calc(100dvh - 91px);
+
+            display: block !important;
+
+            padding: 0px;
+
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        .section {
+            width: 100dvw;
+            height: calc(100dvh - 91px);
+
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+            border-bottom: 1px solid #EEE;
+
+            scroll-snap-align: start;
+        }
+        .firstArea, .secondArea {
+            display: flex;
+            justify-content: center;
+        }
+        .imageArea {
+            flex-direction: row;
+            align-items: center;
+        }
+        .textArea {
+            flex-direction: column;
+
+            padding: 70px;
+
+            font-family: "Noto Serif JP", sans-serif;
+        }
+        .textArea h2 {
+            margin: 0;
+        }
+        .textArea p {
+            text-indent: 30px;
+            text-align: justify;
+
+            line-height: 2;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -24,7 +73,27 @@
 
     <!-- Content -->
     <div class="content">
-        
+        <div class="section">
+            <div class="firstArea textArea">
+                <h2>Home Stay</h2>
+                <p>The Santa Laurensia high school homestay program in the countryside of Kagoshima, Japan, offers students a unique opportunity to experience authentic Japanese culture in a meaningful and immersive way. By living with local host families, students are introduced to daily life in a rural community, fostering genuine connections and cross-cultural understanding. The program includes a variety of hands-on cultural activities, such as practicing traditional calligraphy, preparing temaki, and wearing kimono, allowing students to engage directly with Japan’s rich heritage. More than just an educational trip, the homestay provides valuable life experiences that encourage independence, adaptability, and appreciation for different ways of life. The program concludes with a cultural dance performance by the school, serving as a memorable expression of gratitude and cultural exchange between students and their host community.</p>
+            </div>
+            <div class="secondArea imageArea">2</div>
+        </div>
+        <div class="section">
+            <div class="firstArea imageArea">2</div>
+            <div class="secondArea textArea">
+                <h2>University Visits</h2>
+                <p>As part of efforts to broaden their international educational horizons, students from Santa Laurensia High School participated in an educational trip to Japan, visiting Ritsumeikan Asia Pacific University, Kyushu University, Keio University, and the University of Tokyo in the Fukuoka and Tokyo regions. During the visit, students received presentations on international study programs, English-language course systems, scholarship opportunities, and leading research achievements such as hydrogen energy and the discovery of the element nihonium. They also took campus tours, inspected modern facilities such as laboratories equipped with 3D printer technology, and discussed life and academic competition in Japan with alumni. Overall, this activity provided a realistic picture of the standards of higher education in Japan while motivating students to prepare themselves both academically and non-academically.</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="firstArea textArea">
+                <h2>Komazawa Highschool Exchange</h2>
+                <p>In addition to visiting the university, students from Santa Laurensia High School also took part in a cultural and academic visit to Komazawa High School on February 12. They were warmly welcomed by the principal and students, beginning with an English assignment presentation showcasing classroom learning. The Santa Laurensia students then joined kendo and judo sessions to learn basic techniques of traditional Japanese martial arts. Activities continued with classroom games, discussions on school life, and cultural exchanges between Indonesia and Japan. The visit concluded with a collaborative traditional dance performance and a group photo session. Overall, the experience contributed significantly to students’ character development, cross-cultural communication, and global awareness.</p>
+            </div>
+            <div class="secondArea imageArea">4</div>
+        </div>
     </div>
 </body>
 </html>
