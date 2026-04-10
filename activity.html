@@ -38,6 +38,27 @@
         .imageArea {
             flex-direction: row;
             align-items: center;
+
+            gap: 20px;
+        }
+        .imageArea button {
+            height: 50px;
+            width: 50px;
+
+            background-color: #BC002D;
+            color: white;
+
+            font-family: "Noto Serif JP", sans-serif;
+            font-size: 23px;
+
+            border: none;
+            border-radius: 10px;
+        }
+        .imageArea button:hover {
+            background-color: #9e0025;
+        }
+        .imageArea button:active {
+            background-color: #8b0121;
         }
         .textArea {
             flex-direction: column;
@@ -78,7 +99,13 @@
                 <h2>Home Stay</h2>
                 <p>The Santa Laurensia high school homestay program in the countryside of Kagoshima, Japan, offers students a unique opportunity to experience authentic Japanese culture in a meaningful and immersive way. By living with local host families, students are introduced to daily life in a rural community, fostering genuine connections and cross-cultural understanding. The program includes a variety of hands-on cultural activities, such as practicing traditional calligraphy, preparing temaki, and wearing kimono, allowing students to engage directly with Japan’s rich heritage. More than just an educational trip, the homestay provides valuable life experiences that encourage independence, adaptability, and appreciation for different ways of life. The program concludes with a cultural dance performance by the school, serving as a memorable expression of gratitude and cultural exchange between students and their host community.</p>
             </div>
-            <div class="secondArea imageArea">2</div>
+            <div class="secondArea imageArea">
+                <button>&lt;</button>
+                <div class="carousel">
+                    <img src="" alt="">
+                </div>
+                <button>&gt;</button>
+            </div>
         </div>
         <div class="section">
             <div class="firstArea imageArea">2</div>
@@ -96,4 +123,7 @@
         </div>
     </div>
 </body>
+<script>
+    const carousel1 = [];
+</script>
 </html>
