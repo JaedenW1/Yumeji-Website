@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yumeji - Destinations</title>
+    <link rel="icon" type="image/x-icon" href=" Assets/favicon.svg">
+    <link rel="stylesheet" href="Assets/stylesheet.css">
+    <style>
+        .content {
+            min-height: calc(100dvh - 9dvh - 91px);
+
+            align-items: flex-start;
+
+            padding: 50px;
+        }
+
+        .selector {
+            display: flex;
+            flex-direction: row;
+        }
+        .selector button {
+            height: 9dvh;
+            width: 50dvw;
+
+            font-family: "Noto Serif JP", sans-serif;
+            font-size: 18px;
+
+            border: 0;
+            border-radius: 0px;
+            border-bottom: 1px solid #EEEEEE;
+
+            cursor: pointer;
+
+            transition: background-Color 0.15s ease;
+        }
+
+        .imageSection {
+            width: 100%;
+
+            background-color: #F0F0F0;
+
+            padding: 20px;
+            margin-bottom: 20px;
+
+            border-radius: 25px;
+            box-sizing: border-box;
+        }
+        .imageSection h2 {
+            margin: 0;
+            margin-bottom: 15px;
+
+            font-family: "Noto Serif JP", sans-serif;
+            font-size: 19px;
+        }
+        .imageArea {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            gap: 30px;
+        }
+        .imageArea img {
+            width: 200px;
+            height: 150px;
+
+            border-radius: 10px;
+
+            object-fit: cover;
+            box-shadow: 0px 0px 0px black;
+
+            transition: box-shadow 0.15s;
+
+            user-select: none;
+        }
+        .imageArea img:hover {
+            box-shadow: 1px 1px 10px black;
+        }
+        
+        .lightbox {
+            position: fixed;
+            display: flex;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background-color: rgb(0, 0, 0, 0);
+
+            visibility: hidden;
+
+            transition: background-color 0.3s;
+
+            cursor: pointer;
+        }
+        #imageInlightbox {
+            opacity: 0;
+
+            max-height: calc(100dvh - 150px);
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            user-select: none;
+
+            transition: opacity 0.3s;
+
+            cursor: default;
+        }
+    </style>
+</head>
+<body onload="swap('Tokyo')">
+    <!-- Header -->
+    <div class="header">
+        <h1 class="title">夢路 Yumeji</h1>
+
+        <div class="navigation">
+            <a href="index.html">Home</a>
+            <a href="activity.html">Activity</a>
+            <a href="destinations.html" class="active">Destinations</a>
+            <a href="culinary.html">Culinary</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+    </div>
+
+    <div class="selector">
+        <button onclick="swap('Tokyo')">Tokyo</button>
+        <button onclick="swap('Fukuoka')">Fukuoka</button>
+    </div>
+
+    <!-- Content -->
+    <div class="content" id=content>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" onclick="toggleLightbox()">
+        <img id="imageInlightbox" src="" alt="">
+    </div>
+</body>
+<script>
+    const items_tk = [
+        ["Asakusa", ["Assets/Images/Asakusa-1.jpg", "Assets/Images/Asakusa-2.jpg", "Assets/Images/Asakusa-3.jpg"]],
+        ["Shibuya", ["Assets/Images/Shibuya-1.jpg", "Assets/Images/Shibuya-2.jpg", "Assets/Images/Shibuya-3.jpg"]],
+        ["Akihabara", ["Assets/Images/Akihabara-1.jpg", "Assets/Images/Akihabara-2.jpg", "Assets/Images/Akihabara-3.jpg"]],
+        ["Odaiba", ["Assets/Images/Odaiba-1.jpg", "Assets/Images/Odaiba-2.jpg", "Assets/Images/Odaiba-3.jpg", "Assets/Images/Odaiba-4.jpg", "Assets/Images/Odaiba-5.jpg"]],
+    ];
+    const items_fk = [
+        ["Kumamoto Castle", ["Assets/Images/Kumamoto-1.jpg", "Assets/Images/Kumamoto-2.jpg"]],
+        ["Canal City", ["Assets/Images/CanalCity-1.jpg", "Assets/Images/CanalCity-2.jpg", "Assets/Images/CanalCity-3.jpg"]],
+        ["Tarumizu Homestay", ["Assets/Images/Homestay-1.jpg", "Assets/Images/Homestay-2.jpg", "Assets/Images/Homestay-3.jpg", "Assets/Images/Homestay-4.jpg", "Assets/Images/Homestay-5.jpg"]],
+    ];
+
+    var lightbox_displayed = false;
+    const lightbox = document.getElementsByClassName("lightbox")[0];
+    const lightboximg = document.getElementById("imageInlightbox");
+
+    function toggleLightbox(img){
+        if(lightbox_displayed != true) {
+            lightbox.style.backgroundColor = "rgb(0, 0, 0, 0.5)";
+            lightbox.style.visibility = "visible";
+            
+            lightboximg.style.opacity = "1";
+            lightboximg.style.visibility = "visible";
+
+            lightbox_displayed = true;
+
+            if(img) {
+                lightboximg.src = img.src;
+            }
+        } else {
+            
+            lightbox.style.backgroundColor = "rgb(0, 0, 0, 0)";
+            lightbox.style.visibility = "hidden";
+
+            lightboximg.style.opacity = "0";
+            lightboximg.style.visibility = "hidden";
+
+            lightbox_displayed = false;
+        }
+    }
+
+    lightboximg.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+
+    function swap(region) {
+        const buttons = document.querySelectorAll("button");
+
+        buttons.forEach(element => {
+            if(element.innerHTML == region) {
+                element.style.backgroundColor = "#BC002D";
+                element.style.color = "#FFFFFF";
+            } else {
+                element.style.backgroundColor = "#F0F0F0";
+                element.style.color = "#000000";
+            }
+        });
+
+        if(region == "Tokyo") {
+            render(items_tk);
+        } else {
+            render(items_fk);
+        }
+
+    }
+
+    function render(list) {
+        const content = document.getElementById("content");
+        var items = "";
+
+        content.innerHTML = "";
+
+        list.forEach(element => {
+            items += `<div class="imageSection"><h2>${element[0]}</h2>`;
+
+            items += '<div class="imageArea">';
+
+            element[1].forEach(image => {
+                items += `<img src="${image}" loading="lazy" onclick="toggleLightbox(this)">`;
+            });
+
+            items += '</div></div>'
+        });
+
+        content.innerHTML = items;
+    }
+</script>
+</html>

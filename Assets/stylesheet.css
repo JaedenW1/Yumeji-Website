@@ -1,0 +1,72 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+/* Font */
+@font-face {
+    font-family: "Noto Serif JP";
+    src: url(../Assets/Noto_Serif_JP/static/NotoSerifJP-Regular.ttf) format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Noto Serif JP";
+    src: url(../Assets/Noto_Serif_JP/static/NotoSerifJP-Bold.ttf) format("truetype");
+    font-weight: 700;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header */
+.header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EEE;
+    display: flex;
+    height: 90px;
+    padding: 0 90px;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+}
+
+.title {
+    margin: 0;
+    color: #BC002D;
+    font-family: "Noto Serif JP", sans-serif;
+   
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.navigation {
+    display: flex;
+    width: 500px;
+    justify-content: right;
+    gap: 30px;
+}
+
+.navigation a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #1c1c1c;
+}
+
+.navigation a.active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Page Content */
+.content {
+    min-height: calc(100dvh - 91px);
+    background-color: #faf9f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    box-sizing: border-box;
+}

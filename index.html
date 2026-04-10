@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Other -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE-->
+    <title>Yumeji - Home</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="Assets/favicon.svg">
+    <link rel="stylesheet" href="Assets/stylesheet.css">
+
+    <style>
+        .hero {
+            display: flex;
+            flex-direction: column;
+
+            height: calc(100dvh - 91px);
+
+            margin: 0;
+            padding: 0;
+
+            justify-content: center;
+            align-items: center;
+
+            /* Background Image */
+            background-image: url(Assets/Images/Background.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+        }
+
+        /* White Overlay */
+        .hero::before {
+            content: ""; 
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.65);
+
+            position: absolute;
+            z-index: 0;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+
+            margin-bottom: 80px;
+
+            align-items: center;
+
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            margin: 0;
+
+            font-size: 50px;
+
+            color: #BC002D;
+            font-family: "Noto Serif JP", sans-serif;
+        }
+        .subtext {
+            margin-top: 10px;
+            
+            font-family: "Noto Serif JP", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header" id="header">
+        <h1 class="title">夢路 Yumeji</h1>
+
+        <div class="navigation" id="navigation">
+            <a href="index.html" class="active">Home</a>
+            <a href="activity.html">Activity</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="culinary.html">Culinary</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero" id="hero">
+        <div class="hero-content">
+            <h2 class="hero-text">美しい日本の世界へ</h2>
+            <p class="subtext">Experience the elegance, tradition, and harmony inspired by Japanese aesthetics.</p>
+        </div>
+    </div>
+</body>
+</html>
