@@ -104,6 +104,7 @@
 
             max-height: calc(100dvh - 150px);
             object-fit: cover;
+            object-position: center;
 
             border-radius: 10px;
 
@@ -112,6 +113,25 @@
             transition: opacity 0.3s;
 
             cursor: default;
+        }
+
+        .blur-load {
+            border-radius: 10px;
+            padding: 0;
+            
+            width: 200px;
+            height: 150px;
+
+            background-size: cover;
+            background-position: center;
+        }
+        .blur-load.loaded > img {
+            opacity: 1;
+
+            transition: opacity 0.2s ease-in-out;
+        }
+        .blur-load > img {
+            opacity: 0;
         }
     </style>
 </head>
@@ -159,6 +179,10 @@
     var lightbox_displayed = false;
     const lightbox = document.getElementsByClassName("lightbox")[0];
     const lightboximg = document.getElementById("imageInlightbox");
+
+    function toSmall(path) {
+        return path.replace(/(\w+)(-\d+\.jpg)$/, "$1Small$2");
+    }
 
     function toggleLightbox(img){
         if(lightbox_displayed != true) {
@@ -222,13 +246,33 @@
             items += '<div class="imageArea">';
 
             element[1].forEach(image => {
-                items += `<img src="${image}" loading="lazy" onclick="toggleLightbox(this)">`;
+                items += `<div class="blur-load" style="background-image:url(${toSmall(image)})">
+                    <img src="${image}" loading="lazy" onclick="toggleLightbox(this)">
+                    </div>`;
             });
 
             items += '</div></div>'
         });
 
         content.innerHTML = items;
+
+        
+
+        // IMAGE LOADING
+        const blurDivs = document.querySelectorAll(".blur-load");
+        blurDivs.forEach(div => {
+            const img = div.querySelector("img");
+
+            function loaded() {
+                div.classList.add("loaded");
+            }
+            
+            if (img.complete) {
+                loaded();
+            } else {
+                img.addEventListener("load", loaded)
+            }
+        })
     }
 </script>
 </html>
