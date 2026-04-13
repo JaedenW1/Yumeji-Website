@@ -9,13 +9,74 @@
     <link rel="stylesheet" href="Assets/stylesheet.css">
 
     <style>
+        .content {
+            min-height: calc(100dvh - 9dvh - 91px);
+
+            padding: 0;
+        }
+
+        .aboutUs {
+            display: flex;
+            
+            flex-direction: column;
+
+            align-items: center;
+
+            min-height: calc(100dvh - 91px);
+            width: 100vw;
+
+            border-bottom: 5px solid #eee;
+        }
+        .aboutUs h2 {
+            margin-top: 20px;
+        }
+
+        .people {
+            display: grid;
+
+            gap: 40px;
+            grid-template-columns: 50% 50%;
+
+            justify-content: center;
+        }
+        .people > div {
+            display: flex;
+            flex-direction: column;
+            width: 20dvw;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+        .people > div > img {
+            width: 200px;
+            height: 200px;
+
+            object-fit: cover;
+            object-position: center;
+
+            border-radius: 10px;
+
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.189);
+            
+            transition: transform 0.2s ease-in-out;
+        }
+        .people > div > img:hover {
+            transform: scale(1.05);
+        }
+        .people > div > h3, .people > div > p {
+            font-family: "Noto Serif JP", sans-serif;
+        }
+        .people > div > p {
+            font-size: 13px;
+            margin-top: 0px;
+        }
+
         /* Form Section */
         .form {
             display: flex;
             flex-direction: column;
             align-items: center;
-
-            min-height: calc(100dvh - 91px);
 
             background-color: #faf9f6;
 
@@ -39,7 +100,7 @@
             flex-direction: column;
             gap: 14px;
 
-            width: 52%;
+            width: 52dvw;
             max-width: 780px;
         }
 
@@ -97,6 +158,11 @@
             cursor: not-allowed !important;
             background-color: #9e0025;
         }
+
+        .red {
+            color: #BC002D;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -109,19 +175,39 @@
             <a href="activity.html">Activity</a>
             <a href="destinations.html">Destinations</a>
             <a href="culinary.html">Culinary</a>
-            <a href="feedback.html" class="active">Feedback</a>
+            <a href="contact.html" class="active">Contact</a>
         </div>
     </div>
 
-    <!-- Form -->
-    <div class="form" id="form">
-        <h2 class="form-title">Contact</h2>
+    <div class="content">
+        <div class="aboutUs">
+            <h2 class="form-title">About Us</h2>
+            <div class="people">
+                <div class="jaeden">
+                    <img src="Assets/Images/AboutUs/jaeden.png" alt="">
+                    <h3>Jaeden</h3>
+                    <p>jaeden.lw@santa-laurensia.sch.id</p>
+                    <p class="red">SMA Santa Laurensia</p>
+                </div>
+                <div class="angelo">
+                    <img src="Assets/Images/AboutUs/angelo.png" alt="">
+                    <h3>Angelo</h3>
+                    <p>angelo.gregorius@santa-laurensia.sch.id</p>
+                    <p class="red">SMA Santa Laurensia</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Form -->
+        <div class="form" id="form">
+            <h2 class="form-title">Contact</h2>
 
-        <form onsubmit="submitForm(event)">
-            <input type="text" class="contact-field" id="name" placeholder="名前 / Name (Optional)" />
-            <textarea class="contact-field" id="message" placeholder="メッセージ / Message"></textarea>
-            <button type="submit" class="contact-submit">送信 / Submit</button>
-        </form>
+            <form onsubmit="submitForm(event)">
+                <input type="text" class="contact-field" id="name" placeholder="名前 / Name (Optional)" />
+                <textarea class="contact-field" id="message" placeholder="メッセージ / Message"></textarea>
+                <button type="submit" class="contact-submit">送信 / Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 <script>
