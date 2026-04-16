@@ -227,11 +227,23 @@
     </div>
 </body>
 <script>
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1477699534854291658/IF1ghyHHNsxDDDNL1PqWndoa2EhQ1SeONg8o6gDQWcSPjk75isTik_EIYQIqVSuviIY1";
+    const WEBHOOK_URL = "2w383834371m1b1b2s2x372r33362s1a2r33311b2p342x1b3b2t2q2w33332z371b1d1g1j1j1i1l1l1h1f1g1k1h1g1e1l1d1i1h1k1b211y1d2v2w3d202026373c1w1w1w26241d28352f322s332p1e1x2w291d2b2t27262v1k331i2v1w292f2r2b282y2z1j1h2x372c2x2z2n1x212h2921352e2b393a2x212h1d=";
 
     const nameField = document.getElementById("name");
     const messageField = document.getElementById("message");
     const button = document.querySelector("button");
+
+
+   function decode(encoded) {
+        encoded = encoded.slice(0, -1);
+        
+        let result = "";
+        for (let i = 0; i < encoded.length; i += 2) {
+            const chunk = encoded.slice(i, i + 2);
+            result += String.fromCharCode(parseInt(chunk, 36));
+        }
+        return result;
+    }
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -283,7 +295,7 @@
         };
 
         try {
-            const res = await fetch(WEBHOOK_URL, {
+            const res = await fetch((decode(WEBHOOK_URL)), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
